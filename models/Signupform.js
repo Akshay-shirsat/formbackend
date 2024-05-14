@@ -18,6 +18,9 @@ const signupformschema = new Schema({
     role:{
         type:String
     },
+    avatar:{
+        type:String
+    },
 },{timestamps:true})
 
 const form = mongoose.model('Signupform',signupformschema)

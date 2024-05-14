@@ -40,7 +40,11 @@ const store =(req,res,next)=>{
         emailid:req.body.emailid,
         password:req.body.password,
         role:req.body.role,
+      
     })
+    if(req.file){
+        signupforms.avatar = req.file.path
+    }
     signupforms.save()   
     .then(response=>{
         res.json({
@@ -68,6 +72,7 @@ let updateData={
 form.findByIdAndUpdate(userID,{$set:updateData})
 .then(()=>{
     res.json({
+        
         message:'User upadte succesfully'
     })   
 })
